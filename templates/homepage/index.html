@@ -1,0 +1,281 @@
+﻿
+{% extends "basic.html" %}
+{% load static %}
+
+ 
+	{% block head %}
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+    
+<div class="jumbotron">
+  <h5>BE YOUR OWN DOCTOR ... </h5>
+    <p class="lead">
+            It might have happened so many times that you or someone yours need doctor’s help immediately,
+             but they are not available due to some reasons.The Disease Prediction system is an end user
+              support. Here, we created a web application that allow users 
+              to get instant guidance on their disease through an intelligent system. Here we use some intelligent data 
+              mining techniques to guess the most accurate illness that could be associated with patient’s details.
+              Disease prediction has the potential to revolutionize healthcare by enabling early intervention and preventive measures. By identifying individuals who are at high risk for certain diseases, doctors and healthcare professionals can take proactive steps to prevent or mitigate the impact of those diseases. For example, patients who are identified as being at risk for diabetes can be given lifestyle advice and interventions to prevent or delay the onset of the disease.
+              
+    
+                
+  
+     {% if user.is_authenticated %}
+
+     
+     {% else %}
+
+      <p class="lead">
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg">Get started</button>
+      </p>
+    
+
+</div>
+
+<br><br><br>
+<div class="container mt-5 mb-3" style="width:fit-content;">
+      <center>
+        <h1>Sign-In  As</h1>
+        </center>
+      
+      
+      <form>
+          <div class="container mt-5 mb-5">
+       <div class="row">
+          <div class="col">
+             <a href="{% url 'sign_in_admin' %}">
+      <img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_doctor' %}">
+      <img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_patient' %}">
+      <img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+      </a>
+          </div>
+        </div>
+        </div>
+      </form>
+</div>
+
+
+    
+
+    {% endif %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-In  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5">
+ <div class="row">
+    <div class="col">
+       <a href="{% url 'sign_in_admin' %}">
+<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-Up  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5 ml-5 mr-5">
+ <div class="row">
+
+    <div class="col">
+<a href="{% url 'signup_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'signup_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br><br>
+<center><h2>Our Famous Doctors</h2></center>
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr. Naresh Trehan </h5>
+                <img  alt="admin" src="data:image/jpeg;base64,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" width="200" height="200" class="rounded">
+                <p class="card-text"> <h5>New Anaz Mandi Road, P.O-Radaur, Distt</h5> Yamuna Nagar - 135133, Haryana</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dr. Ashish Sabharwal </h5>
+                <img  alt="admin" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhITEhIVFRIWFRISEhYVFRUVFRUWFREXFhYSFxUYHSggGRolGxUVITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGBAQGi0lHyUtLSstNy0rNy0tLSstLS0tLS0rLS0tKysrLSsrLS0tLS0tLSstLS0tKy0tNSstLS0tK//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAAAwIEBQYHAQj/xABGEAACAQIDBAYHBAcECwAAAAAAAQIDEQQhMQUGEkEiUWFxgZEHEzJSobHBQmKC0SMzcnOS8PEUVKKyCBU0Q1Nkk5Sjs8L/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQIDBAX/xAAhEQEBAAICAgIDAQAAAAAAAAAAAQIRAzETIRJBBFFhI//aAAwDAQACEQMRAD8A7iAAAAAAAAAAB5J2zenM5x6QfSrSwM5YfDwjXxMcqjbapUn7sms5T+6rW5tPI4tvTv7j8cuGvXfq/wDhU16un4xWcvxNk2uneN4fStszCtxVV4iosnHDpTSfbUbUPDiv2Gj47071W36nBQiuTqVZSfe4xirebONcZ7xAdfwfp1xKf6XCUZrnwVJ03/iUjpO5/pCwW0LQpydOvzo1bRm+2DTtNfsu65pHysiSFZppptNNNNOzTTumnyZPY+0gcK9HnpenTcaG0ZOdLKMMQ7upDq9b78fve0ud9V3OlUUkpRalFpSi07ppq6aa1RpFQAAAAAAAAAAAAAAAAAAAAAAAAAAGtekXeB4HAV68H+lsqdH95UfDGVufDnK33TZTk/8ApEyf9jwivl/aW33qhUt82KODVKrbd23Jtttu7bbu23zbZkcDu/UqZ2su0n3T2V62o5S9mNvFs6PhcGoqyR5OXm+N1Hr4OD5zdc3r7r1I3+ha1NhVY5pHWlhUy3r7OT0Oc/Iyd7+Lg49Ug1rkyg37bm7N7tamlYvAyg2pKx6ePlmTycvDcFvdHbPQJvdJuWzqsrpRdXCt6pL9ZR7s+JLl0uw4g0ZTdjazwmLw+JV/0VWE5W5wvapHxg5LxOri+xAeRkmk1o80elQAAAAAAAAAAAAAAAAAAAAAAAAOV/6Q8L4HDP8A5uK88PW/I6ocy9P7X+r6F/73Tt/29clHN9xqNqTfXL6G2Rdkc52XvG6EYwUb6t37Xl8DPUt9qTsmmj5+fFlcrX0uHmwmMjaY1mSxqstKGLhOPEtGrmIx+91GlJxtmiY4W+o65ckxm6ztd31RhNpYGnJO8VfkYyrvvB6RPMPvBTq2i8pN6cn2pjx5z2x5cMvTUdt4dRqO2hjlH8jO704RwmpaxlmjBpHuwu8Y+dyTWVj653Gxbq7OwNSTvKWGoOT65eripPzTM4az6M4W2VgE/wC70n5xv9TZjowAAAAAAAAAAAAAAAAAAAAAAAAGkemDZ7rbPdoRl6urSqvibVkrxclZO/t2t1Nm7mN3lpxlhMTGXsujVT/6bJl0s7fPOPwDg6cIJJJRdRpR4tF0Y3Vr6mOp4CXFJvRcXC+GLbz6PFHRLuOgTowly+Fy1q4eMbpRz10f1PFOWx9GfjyzbBbKw1Rwk+KFrtRThLkrP7WWdzEYqi3fiST7Ffl2m8LBtQ0dub5XeZj5RSznFqPXa+vYZxy1dt5ce5JtrM8PNSSpSTp2i2504XWXSVrXbv2kFHCOdperjGonlJPhj8EzfMLs6LV1xOPLWx7V2dTSb4bG7y1znBJ9tB3q9a6UHOKSTs7dbT815Eez913KMZzk+FxUkoZt37eS0zM1vYl6px7YvyZmdgYeVODg3xcUI2XU1aPCl5CclmE0njxy5Lv+Os+jipJ7Pw8ZK3q4ujH9im3CF+3hSXgbKWGw8AqFCnS5xXS/abvLwu2X568d/GbeHPXyuugAGmQAAAAAAAAAAAAAAAAAAAAAMJvtWcMBi5LVUaj/AMJmzGb0YV1cHiqaV5ToVoxXW3Tdl52JehxSnt6Cpesbtl8ervMDtfeLijem3xZu6ds018DEUuPhdNpNriuny5Pu5Er2VKMkpThe3NPhz1X9TyTjxx917pzZ5TWK8e/NSVPhlC08k2nl3pPR9hb4DeO0unxNJ3d5OV7Nap9XYS0t1nPRRu+fE7LtyuRVd2qqefDFdcnr4amv89NXDnnttuy9t0/ZhO8ZZxXPuLjaW0VGDk3yNAxGDnQmqd05dGUWvFWXwJ9r7Tc7QWmV/qc/F7mul891flPaTae0vWtR1V1ft/m50ncHZd69GLu0n62d8vZ6Sy6uL5nMN0dlPFYzD4dOzqTSva9lFOcpW52UWfTOwtg08Mnwtym1aUnlkuSXJHXxbsk6jhObUyt7rLAA9LygAAAAAAAAAAAAAAAAAAAAAAAAAA4h6RN1lhsW8Qo/oat+DlGFSWsW+XWu8xcNiSlSfH0V2LinrZK/Xe3n5d42ps6niKcqVWN4v4NaSXajmu28G6M/VTVkrfj16afVk/E454umGWml4ndm0G6TdkoJZu95Ozk3a1l2HtDZvq0m7yz1fKztLPlndG3Uq1NVKbvnmtUtIyWfYuJ6/kWFdxjNt2fsyUXG7vwTVrK+vRv4nO4Wus5JOnP9vRlxyk8nFq2ml3dXXLTPtMBCrdv4fkbTvNQiumm3KSad3nlwyU+2+S/oYHZeyp1qihTi5Sdsvm+7tO2OMkcblbW6+henCO0FVnpGlO2duFztHia55cSy6z6IRy7dTdyODotXvObTm32LKK7F9Tb9g7Vs1Sm9cqbf+R/Ty6jpJ6ZrYgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAOfelXatGNOnBSTxEZqfCle0HFqUZPldNNLsRsu8+2/UQ4YfrZLo/dXvv6I4ttqEpVG22225NvNt83czl01jGPlt906jlw630vz6r/AM6lrPeWfrHNRzSajfleLvdeTFal93usi+2HuvUxMuJx4KfOb5291czljdutw0wmGhisZUjTpxzsoZXUVFc5dSOubpbt0sHTSS4qjXTqWzb6l1RJdkbJpUI8FGNr+09ZS7WzLtdR6Mcf242qKtRltxWlGVr2kpW67O9i5ki0r1raK7N6ZbzgcdCrHig+9P2o9jRcnNYVZQfFFtS602reRmsBvTONlVXGutZS/J/AxYrcAWmB2jSqq8JJvmtJLwLsgAAAAAAAAAAAAAAAAAAAAABFiq6hCUm0kk3m7dyLLbG1o0EsuKb9mP1fUjTdpY+pVd5yv1JZRXcgLDaFedRynN9OWcuzsXYjWtr2iuJ5uMZac9LfkZmrtSk6kqXGlUVk4tq7y1XX9DF7bp2oT4M6lrRv70nwx+LQaijdrZV6FOvWhxTkuKMH7Nk30n13Sujdou6XCsrZdxj8RWjThGC0iowil2JJJGQ2LJyglJWlHoyXdo/FWGOMnRcre1xhKGsnrou4ubHs+wonUSWuZ0YUVVFGKrVLvsReYmplZasjhQUVd6gWc0I0+smjC7Lh0kkBaRTi043TWjWT8zYNlbySVo1s1761Xeua+PeYpQKZ0LksG/wkmk07pq6a0afMqNR2HtV0n6upf1beT9xvn3fz1m2p30M2K9ABAAAAAAAAAAAAAACLFYhU4SnLRK/f1LxJTW968X7NJfty+UV835AYHFV5VJynLVu/d1JdiIZIrsUot6HFd8Yesx1aCTbjUlG3W5Sbil4SijpWyNiuFKhTfTlTS6TbfS1bz1tK7XVka/udglicfiMQ0moznUj+Oco0n/DFvvsdKfDCOWVk7vuJPZGPp4FJ3l0p6IzeGoqEbLvfazE7BxKr8VWOdNNxpyf27O0px+7fJPnZ8rN5i5uD1st6k1FfImlKxY245dhUVUINviZ5iXyLpqyLanHil3AS4ekkiiK4pdiJsS7RPaUbLwuAcSmehLGN/mymWbKLWX9TPbt43/dPl7H5fz2mGlEjp1XCcZLKzJYN8BFha6nCMlzXk+aJTmoAAAAAAAAAAAAAoqz4YuT0Sb8lc0HE1HKTk3dt3Zu+05Wo1X9yXxVjRJAVNZFtj6vBSqz9ynUn/DBv6F5OORg986jhgcS17ij4TnGD+Emao57ulvJ/Y6ruuKlNRjNLVcN+GS69Xl2ma2pvFU2jWhg8NeFKpJKc/tSgs5O3KKSbtzdkaA3mdL9Euy7Rq4mSzk/VU2/djnNrvlZfgOeP6R0DB4aNKnCnBWhCKjFdSSsie5S2eSdl2nUQ13d2XiS0adimnDzepNyKIMRIrw0LLvI7XZcoCCtm7Esuru+RGs5Irn7XgvqWCSbtEjjoKstD1AUyIKsCdaMpayAyu7OLzdN8813rVeKz8GbCaPhqrhLiWsWpeWq8VdeJu8ZJpNaPNGMlegAyAAAAAAAAAAAxm8dS2Hn28K85K/wuaYvojZd7cRlCn1tyfgrL5vyNZpAXTjkYje6nfA4v9zOX8Kv9DN0VyIMZhvWU6tN/bhOm/wAUWvqbR8/QpuTSiryk1GK65N2S8zv2xMAsPQpUVpCEYt9bt0peLu/E5P6PNmOrjYOS6NFOrL9pZRXfxNP8LOyXMYT7FcesW5lS0JI6I2IonsyZRQlTXUXYtqK5ki5kvqkU1YpJd4FtDmeSnmu36FTyuUdXj8kUSPUrejI4asqqvovuCKafs95WlkUpaLsJWgq2eUkbRsCtxUUucG6b7l7P+FxNZqoyu71a1SUeU4qS74Oz+DXkZyg2IAGFAAAAAAAAAABpm81W9eX3VFLyT+bZjKL+Zf70K1ab5dG/jGOfzMdhii+pvMmazTIC4hmvA1Ea1uvsL+z1MZJrOrXm4/u024rznL4Gwhq3fzKZzSTbdkk231JK7YFxEqSLPZ+IcoJy4VPpXUXdXUmsr59ReRJPaqkj1BM9KhcixT0JokGI5lEE3kym+Sf8+yhLQglO0G+yL/8Ak0i6paFU82l4vuRFGRXDS/X8iCSnq2VnkVYFFFVZFWErcM6U+qaT7pdF/M9ksiDhvCS7H8CK3gEOCrcdOEvejF+azJjkoAAAAAAAAeNnpjd4ako0JtfdUs7ZOSTA1ja2KVWpN26Oi+8krXZj8PG11/U8rYtLXL5eehRhsRGT6LT7nc19IyMVdFdObWTKaZUUeSnmR16fFGUfeUo9eqsSpHlidz2MdHZdl0Z2adRp5r25N8nyuv4SqOErpxaqOTyvd65RT1WX2vgZGxXAz44xePFg518ZTnUcacpxc6jUW01wpXhwvjyT7k81kyZbZxHFGPqOJuXDe1Sml7L425Rdk05ZZtcOfZmketmvj/Xr82N7wjG7F2060nCVPgnGEZu0r5SzWVrrJ88y/nK9yq5Bc1jHLkyxt3jNKZ6FtOHFDh96M4lzPmW/FZQfazbnShLisuvUv0ixwMLJvrbt3X/qXauZEyZS5FGYlUQFakUUdWj1aFEHmFbHu3UvQS5xlKL87r4NGUMDuxPOtHtjJeN0/kjPHO9qAAgAAAAABgt66zUIx5Sbv22taP18DOmr71YmXHGDXQSU12u7Xwt8RBr6wkNXCN+yKRCuFSVo2el+ZdesfMtcQ81yzXLtN/SMlTK7kC17yVQyAkKZHq1PKgFV8iuBDVWSPKNRouhdtHlih1Sn1hdCupoQo9bKXIqEixrytHuky/uYzGytfwZYlX+EqxcUlqsmTuZrdfDz44SpycVk1KzfP2WuaZnI4hv7L8mvmZVI7srpUiONd3twS71Zr5lNLatJtris1k1JOPzAupoojqV8aeas12ETeYGR2BO2Ikveg/NcL/M2c1LZbtiqfapL/wAbf0NtMZdtAAMgAAAAAGo72/ro/u1/mkegDEUi0xn1ANoyMtV/PIn+ywBRTA8qAAVVtERQANCYpAKyMjqAFFNIx+0efc/oegQXNX9Uv2foXUNADNVXQMfjfbl3IAsSmytWX9bUAlaXOzv9qo/i/wDXI3AAxl2oADIAAD//2Q==" width="200" height="200" class="rounded">
+                <p class="card-text"><h5>Om Niwas Khai Basti, Khai Road</h5> Lehragaga-148031, Distt. Sangrur, Punjab.</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title"> Dr. Aditya Gupta </h5>
+                <img  alt="admin" src="https://www.artemishospitals.com/BackEndImages/DoctorImage/dr-aditya-gupta.jpg" width="200" height="200" class="rounded">
+                <p class="card-text"><h5>Swaroop Hospital,Hawa Sarak</h5>Civil Lines-302 019, Jaipur
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<br><br><br><br>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="footer" class="card bg-dark text-white">
+      <div class="card-body">
+        Contact-
+     
+    <ul >
+     
+      <li >
+        <h5 class="mb-1">Email : honeshadevaloki@gmail.com</h5>
+      </li>
+      <li >
+        <h5 class="mb-1">Contact no : 9078166555</h5>
+      </li>
+      <li >
+        <h5 class="mb-1">Address : Thiruvallur District , Chennai</h5>
+        <style>
+          footer{
+            padding : 20px;
+            font-weight: bold;
+            text-align: center;
+            background: #b3baf5;
+            color:black;
+            font-family: Arial;
+            letter-spacing: 1px;
+        }
+        </style>
+        <footer>  &copy;  Disease Prediciton All Rights Reserved<a href="#"> .com</a></footer> 
+          
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+  </div>
+
+  
+ 
+
+
+
+
+
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    
+
+
+
+
+    
+{% endblock %}
